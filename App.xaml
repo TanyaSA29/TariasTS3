@@ -1,0 +1,15 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TariasTS3"
+             x:Class="TariasTS3.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Style x:Key="globalbutton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="BlueViolet"/>
+
+            </Style>
+                   
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

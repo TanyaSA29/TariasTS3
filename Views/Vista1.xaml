@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TariasTS3.Views.Vista1"
+             Title="Vista1">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!-- Estilo implícito para todos los Labels -->
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="#FFB300"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+
+            <!-- Estilo implícito para todos los Entry -->
+            <Style TargetType="Entry">
+                <Setter Property="BackgroundColor" Value="#FFF5E1"/>
+                <Setter Property="TextColor" Value="#4A0000"/>
+                <Setter Property="FontSize" Value="16"/>
+            </Style>
+
+            <!-- Estilo implícito para todos los Frame de encabezado -->
+            <Style TargetType="Frame" x:Key="EncabezadoFrame">
+                <Setter Property="BackgroundColor" Value="#800000"/>
+                <Setter Property="CornerRadius" Value="20"/>
+                <Setter Property="HasShadow" Value="True"/>
+                <Setter Property="BorderColor" Value="#FFB300"/>
+                <Setter Property="Padding" Value="15"/>
+                <Setter Property="Margin" Value="0,10,0,20"/>
+            </Style>
+
+            <!-- Estilo implícito para todos los DatePicker -->
+            <Style TargetType="DatePicker">
+                <Setter Property="BackgroundColor" Value="#FFF5E1"/>
+                <Setter Property="TextColor" Value="#4A0000"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <!-- Fondo degradado rojo con matices dorados -->
+    <ContentPage.Background>
+        <LinearGradientBrush EndPoint="0,1">
+            <GradientStop Color="#4B0000" Offset="0.0" />
+            <GradientStop Color="#800000" Offset="0.5" />
+            <GradientStop Color="#FFB300" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="25" Spacing="12">
+
+            <!-- Encabezado visual -->
+            <Frame Style="{StaticResource EncabezadoFrame}">
+                <VerticalStackLayout>
+                    <Image Source="contacto.png"
+                           HeightRequest="120"
+                           HorizontalOptions="Center" />
+                    <Label Text="Ingresar Contactos"
+                           HorizontalOptions="Center"
+                           Margin="0,10,0,0"/>
+                    <BoxView HeightRequest="2" Color="#FFB300" Margin="0,6,0,0"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Tipo de identificación -->
+            <Label Text="Tipo de Identificación"/>
+            <Picker x:Name="pickerTipo"
+                    Title="Seleccione tipo"
+                    BackgroundColor="#FFF5E1"
+                    TextColor="#4A0000"
+                    FontSize="16">
+                <Picker.Items>
+                    <x:String>CI</x:String>
+                    <x:String>RUC</x:String>
+                    <x:String>Pasaporte</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <!-- Número de identificación -->
+            <Label Text="Número de Identificación"/>
+            <Entry x:Name="entryNumero" Placeholder="Ingrese el número" Keyboard="Numeric" />
+
+            <!-- Nombres -->
+            <Label Text="Nombres"/>
+            <Entry x:Name="entryNombres" Placeholder="Ingrese nombres" />
+
+            <!-- Apellidos -->
+            <Label Text="Apellidos"/>
+            <Entry x:Name="entryApellidos" Placeholder="Ingrese apellidos" />
+
+            <!-- Fecha -->
+            <Label Text="Fecha de Nacimiento"/>
+            <DatePicker x:Name="dpFecha"/>
+
+            <!-- Correo -->
+            <Label Text="Correo Electrónico"/>
+            <Entry x:Name="entryCorreo" Placeholder="correo@hotmail.com" Keyboard="Email" />
+
+            <!-- Salario -->
+            <Label Text="Salario"/>
+            <Entry x:Name="entrySalario" Placeholder="0.00" Keyboard="Numeric" />
+
+            <Frame x:Name="frameError"
+                   IsVisible="False"
+                   BackgroundColor="white"
+                   BorderColor="#B71C1C"
+                   CornerRadius="10"
+                   Padding="10"
+                   Margin="0,10">
+                <Label x:Name="lblError"
+                       TextColor="#8B0000"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center" />
+            </Frame>
+
+            <Frame BackgroundColor="#B20000"
+               CornerRadius="20"
+               HasShadow="True"
+               BorderColor="#FFB300"
+               Padding="0"
+               Margin="0,15,0,0"
+               HeightRequest="50"
+               WidthRequest="200">
+
+                <HorizontalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="10">
+                    <!-- Imagen del botón -->
+                    <Image Source="guardarojo.png"
+                           Aspect="AspectFit"
+                           HeightRequest="30"
+                           WidthRequest="30"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Center"
+                           Margin="5,0,0,0" />
+
+                    <!-- Texto del botón -->
+                    <Label Text="GUARDAR"
+                           VerticalOptions="Center"
+                           TextColor="#FFB300"
+                           FontSize="16"
+                           FontAttributes="Bold" />
+
+                    <!-- Hace todo clickeable -->
+                    <HorizontalStackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnVerDetallesClicked" />
+                    </HorizontalStackLayout.GestureRecognizers>
+                </HorizontalStackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

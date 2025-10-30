@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TariasTS3.Views.Menu"
+             Title="Menu">
+    <ContentPage.Resources>
+
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="CornerRadius" Value="25"/>
+            <Setter Property="HeightRequest" Value="60"/>
+            <Setter Property="Margin" Value="20,10"/>
+            <Setter Property="Shadow">
+                <Setter.Value>
+                    <Shadow Brush="Gray" Offset="5,5" Opacity="0.4"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#A8E6CF" Offset="0.0"/>
+            <GradientStop Color="#DCEDC1" Offset="0.5"/>
+            <GradientStop Color="#FFD3B6" Offset="1.0"/>
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="20" HorizontalOptions="Center">
+
+            <Label Text="Bienvenido" 
+                   FontSize="28" 
+                   FontAttributes="Bold" 
+                   HorizontalOptions="Center"
+                   TextColor="#333333" />
+            <Image Source="uisrael.png" 
+                   HeightRequest="150" 
+                   HorizontalOptions="Center" />
+            <Label Text="Seleccione" 
+                   FontSize="20" 
+                   HorizontalOptions="Center"
+                   TextColor="#555555"/>
+
+            <!-- Botón para vLogin -->
+            <Button Text="Actividad en Clase S3"
+                    BackgroundColor="#6C5B7B"
+                    Clicked="OnVLoginClicked" />
+
+            <!-- Botón para Vista1 -->
+            <Button Text="Taller S3"
+                    BackgroundColor="#355C7D"
+                    Clicked="OnVista2Clicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

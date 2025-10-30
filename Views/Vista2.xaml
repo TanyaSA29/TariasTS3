@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TariasTS3.Views.Vista2"
+             Title="Vista2">
+
+    <!-- Recursos: estilos implícitos -->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!-- Todos los Labels de contenido -->
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="TextColor" Value="#B2EBF2"/>
+            </Style>
+
+            <!-- Labels de encabezado -->
+            <Style TargetType="Label" x:Key="EncabezadoLabel">
+                <Setter Property="FontSize" Value="26"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="#E0F7FA"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+
+            <!-- Frame de botón exportar -->
+            <Style TargetType="Frame" x:Key="BotonFrame">
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="CornerRadius" Value="20"/>
+                <Setter Property="HasShadow" Value="True"/>
+                <Setter Property="BorderColor" Value="#00ACC1"/>
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="Margin" Value="0,20,0,0"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="WidthRequest" Value="200"/>
+            </Style>
+
+            <!-- Label del botón -->
+            <Style TargetType="Label" x:Key="BotonLabel">
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="#E0F7FA"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <!-- Fondo degradado azul con matices turquesa -->
+    <ContentPage.Background>
+        <LinearGradientBrush EndPoint="0,1">
+            <GradientStop Color="#0D47A1" Offset="0.0" />
+            <GradientStop Color="#1976D2" Offset="0.5" />
+            <GradientStop Color="#00BCD4" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="25" Spacing="12">
+
+            <Image Source="detalles.png"
+                   HeightRequest="120"
+                   HorizontalOptions="Center" />
+
+            <!-- Label de encabezado -->
+            <Label Text="Detalles del Contacto"
+                   Style="{StaticResource EncabezadoLabel}" />
+
+            <BoxView HeightRequest="2" Color="#E0F7FA" Margin="0,6,0,12"/>
+
+            <!-- Labels de contenido -->
+            <Label x:Name="lblTipo"/>
+            <Label x:Name="lblNumero"/>
+            <Label x:Name="lblNombres"/>
+            <Label x:Name="lblApellidos"/>
+            <Label x:Name="lblFecha"/>
+            <Label x:Name="lblCorreo"/>
+            <Label x:Name="lblSalario"/>
+            <Label x:Name="lblIESS" FontAttributes="Bold" TextColor="#E0F7FA"/>
+
+            <!-- Botón exportar -->
+            <Frame Style="{StaticResource BotonFrame}">
+                <HorizontalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="10">
+                    <Image Source="guardar.png"
+                           Aspect="AspectFit"
+                           HeightRequest="30"
+                           WidthRequest="30"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Center"
+                           Margin="5,0,0,0" />
+
+                    <Label Text="Exportar a TXT"
+                           Style="{StaticResource BotonLabel}" />
+
+                    <HorizontalStackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnExportarClicked" />
+                    </HorizontalStackLayout.GestureRecognizers>
+                </HorizontalStackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
