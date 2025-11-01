@@ -57,7 +57,7 @@ public partial class Vista1 : ContentPage
 
         if (!decimal.TryParse(entrySalario.Text, out decimal salario) || salario < 0)
         {
-            MostrarError("Ingrese un salario válido, Emperatriz.");
+            MostrarError("Ingrese un salario válido");
             return;
         }
 
